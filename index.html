@@ -76,8 +76,10 @@ body {
   animation: slideInUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .backward .slide.active { animation-name: slideInDown; }
+.slide.divider-slide.active { animation-name: dividerIn; }
 .slide.leaving { animation: slideOutUp 0.22s ease-in both; pointer-events: none; }
 .backward .slide.leaving { animation-name: slideOutDown; }
+.slide.divider-slide.leaving { animation-name: dividerOut; }
 @keyframes slideInUp { from { opacity: 0; transform: translateY(18px) scale(0.985); filter: blur(3px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
 @keyframes slideInDown { from { opacity: 0; transform: translateY(-18px) scale(0.985); filter: blur(3px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
 @keyframes slideOutUp { from { opacity: 1; transform: translateY(0); filter: blur(0); } to { opacity: 0; transform: translateY(-14px); filter: blur(3px); } }
@@ -86,6 +88,8 @@ body {
 @keyframes avatarIn { from { opacity: 0; transform: scale(0.4) rotate(-8deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
 @keyframes riseIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes stageIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes dividerIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+@keyframes dividerOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(1.03); } }
 h1, h2 { font-family: var(--serif); font-weight: 600; color: var(--ink); }
 h1 { font-size: 27px; line-height: 1.2; margin: 0 0 8px; }
 h2 { font-size: 23px; line-height: 1.25; margin: 0 0 18px; }
@@ -135,6 +139,22 @@ strong { color: var(--ink); font-weight: 600; }
 .img-cap { font-size: 12px; text-align: center; color: var(--muted); margin: 0; }
 .slide.active .img-wrap { animation: riseIn 0.55s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .slide.active .highlight-box { animation: riseIn 0.55s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.divider-slide {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(600px 300px at 50% -60px, rgba(201, 162, 74, 0.16), transparent 70%),
+    linear-gradient(135deg, var(--navy), var(--navy-2));
+}
+.divider-slide .tag { color: #e8c877; background: rgba(232, 200, 119, 0.10); border-color: rgba(232, 200, 119, 0.30); }
+.divider-slide h1 { font-size: 42px; color: #f3ead6; margin: 4px 0 16px; }
+.divider-slide h1.big-title { font-size: 54px; }
+.divider-slide p { font-size: 17px; color: rgba(243, 234, 214, 0.72); }
+.divider-ornament { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px; }
+.divider-ornament::before, .divider-ornament::after { content: ""; width: 56px; height: 1px; background: linear-gradient(90deg, transparent, rgba(232,200,119,0.7)); }
+.divider-ornament::after { background: linear-gradient(90deg, rgba(232,200,119,0.7), transparent); }
+.divider-ornament span { width: 7px; height: 7px; transform: rotate(45deg); background: #e8c877; }
 .title-slide { align-items: center; justify-content: center; text-align: center; }
 .title-slide h1 { font-size: 40px; margin: 6px 0 10px; }
 .title-rule { width: 72px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 14px auto; border-radius: 2px; }
@@ -213,6 +233,9 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
   .slide { padding: 26px 22px 50px; min-height: 470px; }
   .two-col { grid-template-columns: 1fr; gap: 16px; }
   .title-slide h1 { font-size: 30px; }
+  .divider-slide h1 { font-size: 28px; }
+  .divider-slide h1.big-title { font-size: 34px; }
+  .divider-slide p { font-size: 15px; }
   .member-card { width: 46%; max-width: 148px; }
   .nav-bar { padding: 11px 14px; flex-wrap: wrap; }
   .nav-btn { padding: 8px 12px; font-size: 12.5px; }
@@ -225,7 +248,14 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
 <div id="stage">
 <div id="slide-deck">
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-  <div class="slide title-slide" data-index="0">
+  <div class="slide divider-slide" data-index="0">
+    <div class="divider-ornament"><span></span></div>
+    <div class="tag">ENG 111 — Presentation</div>
+    <h1 class="big-title">Welcome</h1>
+    <p style="font-family:var(--serif); font-style:italic; font-size:20px; color:rgba(243,234,214,0.85);">The Future of AI</p>
+    <p style="margin-top:18px; font-size:14px; color:rgba(243,234,214,0.62);">Healthcare &middot; Education &middot; Transportation</p>
+  </div>
+  <div class="slide title-slide" data-index="1">
     <div class="tag">ENG 111 — Presentation</div>
     <h1 style="font-size:42px;">The Future of AI</h1>
     <div class="title-rule"></div>
@@ -234,7 +264,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
       <div class="member-card"><div class="avatar">01</div><div class="name">Lazim Al Ahasan</div><div class="id">ID 2414159042</div></div>
     </div>
   </div>
-  <div class="slide" data-index="1">
+  <div class="slide" data-index="2">
     <div class="tag">Introduction</div>
     <h1>What Is Artificial Intelligence?</h1>
     <div class="two-col">
@@ -256,7 +286,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
       <p>"Imagine waking up to a doctor who never sleeps, a teacher who knows exactly how you learn, and a car that drives you safely. That is not a movie — it is the direction AI is heading right now."</p>
     </div>
   </div>
-  <div class="slide" data-index="2">
+  <div class="slide" data-index="3">
     <div class="tag">Main Point 1</div>
     <h1>AI in Healthcare</h1>
     <div class="two-col">
@@ -277,7 +307,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
       <p>AI doesn't replace doctors — it gives them superpowers, catching diseases sooner and treating patients more personally than ever before.</p>
     </div>
   </div>
-  <div class="slide" data-index="3">
+  <div class="slide" data-index="4">
     <div class="tag">Main Point 2</div>
     <h1>AI in Education</h1>
     <div class="two-col">
@@ -299,7 +329,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
       <p>The goal is not to replace teachers, but to give them time to focus on what matters most — mentoring, inspiring, and connecting with students.</p>
     </div>
   </div>
-  <div class="slide" data-index="4">
+  <div class="slide" data-index="5">
     <div class="tag">Main Point 3</div>
     <h1>AI in Transportation</h1>
     <div class="two-col">
@@ -321,7 +351,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
       <p>AUTO (autonomous urban transport) could eliminate traffic congestion, reduce emissions, and make roads safer for pedestrians and cyclists alike.</p>
     </div>
   </div>
-  <div class="slide" data-index="5">
+  <div class="slide" data-index="6">
     <div class="tag">Conclusion</div>
     <h1>The Road Ahead</h1>
     <div class="two-col">
@@ -342,9 +372,15 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
       <p style="font-size:15.5px; text-align:center; color:var(--ink); font-family:var(--serif); font-style:italic;"><strong>"AI will not replace us — but those who use AI will outpace those who don't."</strong></p>
     </div>
   </div>
+  <div class="slide divider-slide" data-index="7">
+    <div class="divider-ornament"><span></span></div>
+    <div class="tag">ENG 111 — Presentation</div>
+    <h1 class="big-title">Thank You</h1>
+    <p style="font-family:var(--serif); font-style:italic; font-size:20px; color:rgba(243,234,214,0.85);">for your attention</p>
+  </div>
   <div class="nav-bar">
     <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
-    <span class="counter" id="slideCounter" aria-live="polite">1 / 6</span>
+    <span class="counter" id="slideCounter" aria-live="polite">1 / 8</span>
     <div class="nav-right">
       <button class="nav-btn ghost" id="fsBtn" onclick="togglePresenting()" aria-label="Start fullscreen slideshow" title="Fullscreen slideshow (F)">⛶ Slideshow</button>
       <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
@@ -355,7 +391,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
 <div id="fs-controls" aria-hidden="true">
   <div class="fs-inner">
     <button class="fs-btn arrow" onclick="changeSlide(-1)" aria-label="Previous slide">‹</button>
-    <span class="fs-counter" id="fsCounter">1 / 6</span>
+    <span class="fs-counter" id="fsCounter">1 / 8</span>
     <button class="fs-btn arrow" onclick="changeSlide(1)" aria-label="Next slide">›</button>
     <button class="fs-btn fs-exit" onclick="togglePresenting()" aria-label="Exit slideshow">Exit<span class="kbd">Esc</span></button>
   </div>
