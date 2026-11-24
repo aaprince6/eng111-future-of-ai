@@ -33,8 +33,16 @@ slides.append(f'''  <div class="slide title-slide" data-index="1">
     </div>
   </div>''')
 
-# Slide 2: Introduction
-slides.append(f'''  <div class="slide" data-index="2">
+# Slide 2: Introduction Divider
+slides.append('''  <div class="slide divider-slide" data-index="2">
+    <div class="divider-ornament"><span></span></div>
+    <div class="tag">Introduction</div>
+    <h1>What Is Artificial Intelligence?</h1>
+    <p>How AI is reshaping the world around us</p>
+  </div>''')
+
+# Slide 3: Introduction
+slides.append(f'''  <div class="slide" data-index="3">
     <div class="tag">Introduction</div>
     <h1>What Is Artificial Intelligence?</h1>
     <div class="two-col">
@@ -57,8 +65,16 @@ slides.append(f'''  <div class="slide" data-index="2">
     </div>
   </div>''')
 
-# Slide 3: Healthcare
-slides.append(f'''  <div class="slide" data-index="3">
+# Slide 4: Healthcare Divider
+slides.append('''  <div class="slide divider-slide" data-index="4">
+    <div class="divider-ornament"><span></span></div>
+    <div class="tag">Main Point 1</div>
+    <h1>AI in Healthcare</h1>
+    <p>Saving lives through earlier, smarter diagnosis</p>
+  </div>''')
+
+# Slide 5: Healthcare
+slides.append(f'''  <div class="slide" data-index="5">
     <div class="tag">Main Point 1</div>
     <h1>AI in Healthcare</h1>
     <div class="two-col">
@@ -80,8 +96,16 @@ slides.append(f'''  <div class="slide" data-index="3">
     </div>
   </div>''')
 
-# Slide 4: Education
-slides.append(f'''  <div class="slide" data-index="4">
+# Slide 6: Education Divider
+slides.append('''  <div class="slide divider-slide" data-index="6">
+    <div class="divider-ornament"><span></span></div>
+    <div class="tag">Main Point 2</div>
+    <h1>AI in Education</h1>
+    <p>Personalized learning for every student</p>
+  </div>''')
+
+# Slide 7: Education
+slides.append(f'''  <div class="slide" data-index="7">
     <div class="tag">Main Point 2</div>
     <h1>AI in Education</h1>
     <div class="two-col">
@@ -104,8 +128,16 @@ slides.append(f'''  <div class="slide" data-index="4">
     </div>
   </div>''')
 
-# Slide 5: Transportation
-slides.append(f'''  <div class="slide" data-index="5">
+# Slide 8: Transportation Divider
+slides.append('''  <div class="slide divider-slide" data-index="8">
+    <div class="divider-ornament"><span></span></div>
+    <div class="tag">Main Point 3</div>
+    <h1>AI in Transportation</h1>
+    <p>Smarter, safer roads ahead</p>
+  </div>''')
+
+# Slide 9: Transportation
+slides.append(f'''  <div class="slide" data-index="9">
     <div class="tag">Main Point 3</div>
     <h1>AI in Transportation</h1>
     <div class="two-col">
@@ -128,8 +160,16 @@ slides.append(f'''  <div class="slide" data-index="5">
     </div>
   </div>''')
 
-# Slide 6: Conclusion
-slides.append(f'''  <div class="slide" data-index="6">
+# Slide 10: Conclusion Divider
+slides.append('''  <div class="slide divider-slide" data-index="10">
+    <div class="divider-ornament"><span></span></div>
+    <div class="tag">Conclusion</div>
+    <h1>The Road Ahead</h1>
+    <p>Opportunities, challenges, and what comes next</p>
+  </div>''')
+
+# Slide 11: Conclusion
+slides.append(f'''  <div class="slide" data-index="11">
     <div class="tag">Conclusion</div>
     <h1>The Road Ahead</h1>
     <div class="two-col">
@@ -151,8 +191,8 @@ slides.append(f'''  <div class="slide" data-index="6">
     </div>
   </div>''')
 
-# Slide 7: Thank You
-slides.append('''  <div class="slide divider-slide" data-index="7">
+# Slide 12: Thank You
+slides.append('''  <div class="slide divider-slide" data-index="12">
     <div class="divider-ornament"><span></span></div>
     <div class="tag">ENG 111 — Presentation</div>
     <h1 class="big-title">Thank You</h1>
@@ -412,7 +452,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
 {slides_str}
   <div class="nav-bar">
     <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
-    <span class="counter" id="slideCounter" aria-live="polite">1 / 8</span>
+    <span class="counter" id="slideCounter" aria-live="polite">1 / 13</span>
     <div class="nav-right">
       <button class="nav-btn ghost" id="fsBtn" onclick="togglePresenting()" aria-label="Start fullscreen slideshow" title="Fullscreen slideshow (F)">⛶ Slideshow</button>
       <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
@@ -423,7 +463,7 @@ body.presenting #fs-controls.visible { opacity: 1; pointer-events: auto; }
 <div id="fs-controls" aria-hidden="true">
   <div class="fs-inner">
     <button class="fs-btn arrow" onclick="changeSlide(-1)" aria-label="Previous slide">‹</button>
-    <span class="fs-counter" id="fsCounter">1 / 8</span>
+    <span class="fs-counter" id="fsCounter">1 / 13</span>
     <button class="fs-btn arrow" onclick="changeSlide(1)" aria-label="Next slide">›</button>
     <button class="fs-btn fs-exit" onclick="togglePresenting()" aria-label="Exit slideshow">Exit<span class="kbd">Esc</span></button>
   </div>
